@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <script>
+        var posx = [0, 0, 0, 0, 0];
+        var proceso;
+        var carroAcelerado = -1;
+        var velocidad = 0;
+        function iniciaTiempo() {
+            proceso = setInterval(inicia, 50);
+        }
+        function inicia() {
+            for (var i = 1; i < 6; i++) {
+                if (i - 1 == carroAcelerado) {
+                    posx[i - 1] += Math.round(Math.random() * velocidad);
+                    
+                }
+                //else {
+                    posx[i - 1] += Math.round(Math.random() * 10);
+                    console.log(Math.round(Math.random() + velocidad));
+                //}
+                document.getElementById("carro" + i).style.left =
+                    posx[i - 1] + "px";
+                if (posx[i - 1] >= window.screen.width - 40) {
+                    clearInterval(proceso);
+                    break;
+                }
+            }
+        }
+        function acelera() {
+            carroAcelerado = document.getElementById("car").value
+            velocidad = document.getElementById("vel").value
+            
+        }
+    </script>
+</head>
+
+<body>
+    <img src="car.png" id="carro1" style="position: absolute; left: 0px; top:0px;">
+    <img src="car.png" id="carro2" style="position: absolute; left: 0px; top:40px;">
+    <img src="car.png" id="carro3" style="position: absolute; left: 0px; top:80px;">
+    <img src="car.png" id="carro4" style="position: absolute; left: 0px; top:120px;">
+    <img src="car.png" id="carro5" style="position: absolute; left: 0px; top:160px;">
+    <div style="position: absolute; width : 10px; height: 195px; background-color: red; left: 65px"></div>
+    <div style="position: absolute; width : 10px; height: 185px; background-color: black; right: 45px"></div>
+    <button style="position:absolute; width : 75px; height: 30px; top:220px;" onclick="iniciaTiempo()">Iniciar</button>
+    <div style="position:absolute;  left:300px; top:300px;">
+        <p>Apuestas</p>
+        Carro: <select id="car" size="1">
+            <option value=0>carro 1</option>
+            <option value=1>carro 2</option>
+            <option value=2>carro 3</option>
+            <option value=3>carro 4</option>
+            <option value=4>carro 5</option>
+        </select>
+        Velocidad: <select id="vel" size="1">
+            <option value=12>1</option>
+            <option value=20>2</option>
+            <option value=30>3</option>
+            <option value=40>4</option>
+        </select>
+        Dinero:<select size="1">
+            <option>0.5 USD</option>
+            <option>1.0 USD</option>
+            <option>1.0 USD</option>
+            <option>1.2 USD</option>
+            <option>1.5 USD</option>
+        </select>
+        <button onclick="acelera()">Acelera</button>
+    </div>
+</body>
+
+</html>
