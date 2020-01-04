@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+  <style>
+    html {
+      box-sizing: border-box;
+      font-size: 62.5%;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.6rem;
+      line-height: 2;
+    }
+
+    .contenedor {
+      width: 95%;
+      max-width: 120rem;
+      margin: 0 auto;
+    }
+    h2, h3{
+    font-family: 'PT Sans', sans-serif;
+    }
+    h2 {
+      font-size: 3.4rem;
+      color: #ffff;
+    }
+    h3 {
+      font-size: 3rem;
+      color: #0000;
+    }
+
+    .site-header {
+      background-color: #3700b3;
+      padding: 1rem 0 3rem 0;
+    }
+
+    .contenido-header {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .barra {
+      padding-top: 1.2rem;
+    }
+
+    .map {
+      height: 600px;
+      width: 100%;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+  <title>Proyecto Final</title>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="contenedor contenido-header">
+      <div class="barra">
+        <h2>Escuelas en la ZMG</h2>
+      </div>
+    </div> <!-- contenedor -->
+  </header>
+  <div id="map" class="map"></div>
+  <div class="contenedor">
+      <p>Universidad de Guadalajara - CUCEI</p>
+      <p>Proyecto Final</p>
+      <p>Almacenes de Datos - I5906 - D07</p>
+      <p>Emmanuel Méndez Pérez - 216787892</p>
+  </div>
+  <script type="text/javascript">
+    var map = L.map('map').setView([20.5626, -103.344,], 11
+    );
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([20.6736, -103.344]).addTo(map)
+      .bindPopup('<strong>Guadalajara.</strong><br> Escuelas:{{escuelas[0]}}')
+      .openPopup();
+    L.marker([20.7167, -103.4]).addTo(map)
+      .bindPopup('<strong>Zapopan.</strong><br> Escuelas:{{escuelas[1]}}')
+      .openPopup();
+    L.marker([20.6333, -103.317]).addTo(map)
+      .bindPopup('<strong>San Pedro Tlaquepaque.</strong><br> Escuelas:{{escuelas[2]}}')
+      .openPopup();
+    L.marker([20.6815, -103.266]).addTo(map)
+      .bindPopup('<strong>Tonalá.</strong><br> Escuelas:{{escuelas[3]}}')
+      .openPopup();
+    L.marker([20.4739, -103.447]).addTo(map)
+      .bindPopup('<strong>Tlajomulco de Zúñiga.</strong><br> Escuelas:{{escuelas[4]}}')
+      .openPopup();
+    L.marker([20.5175, -103.181]).addTo(map)
+      .bindPopup('<strong>El Salto.</strong><br> Escuelas:{{escuelas[5]}}')
+      .openPopup();
+    L.marker([20.3484, -103.139]).addTo(map)
+      .bindPopup('<strong>Ixtlahuacán De Los Membrillos.</strong><br> Escuelas:{{escuelas[6]}}')
+      .openPopup();
+    L.marker([20.5084, -103.168]).addTo(map)
+      .bindPopup('<strong>Juanacatlán.</strong><br> Escuelas:{{escuelas[7]}}')
+      .openPopup();
+  </script>
+</body>
+
+</html>
